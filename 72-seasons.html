@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metallica — 72 Seasons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#727272;
+    --ink-2:#111111;
+    --bone:#fae000; /* Signature 72 Seasons Yellow */
+    --bone-dim:#e2cb00;
+    --line:#333333;
+    --bg-dark:#0a0a0a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg-dark);
+    color:#ffffff;
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+
+  .hero{
+    position:relative;
+    padding:72px 24px 56px;
+    text-align:center;
+    background:var(--bg-dark);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'Oswald',sans-serif;
+    font-size:12px;
+    letter-spacing:6px;
+    color:var(--bone);
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(56px,11vw,104px);
+    letter-spacing:6px;
+    line-height:0.95;
+    color:#ffffff;
+  }
+  .hero h2{
+    font-family:'Oswald',sans-serif;
+    font-weight:700;
+    font-size:clamp(18px,3.5vw,26px);
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--bone);
+    margin-top:12px;
+  }
+
+  .art-frame{
+    width:220px;
+    margin:36px auto 0;
+    padding:0;
+    background:#000000;
+    border:1px solid var(--line);
+    box-shadow: 0 0 20px rgba(250, 224, 0, 0.15);
+    overflow:hidden;
+  }
+  .art-frame svg{
+    display:block;
+    width:100%;
+    aspect-ratio:1/1;
+  }
+
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-top:28px;
+  }
+  .meta-row span{
+    font-family:'Oswald',sans-serif;
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:#aaaaaa;
+    border:1px solid var(--line);
+    padding:6px 14px;
+    background: var(--ink-2);
+  }
+
+  .string-divider{
+    height:40px;
+    width:1px;
+    background:var(--bone);
+    margin:0 auto;
+    position:relative;
+  }
+  .string-divider::after{
+    content:"/";
+    position:absolute;
+    left:50%;
+    top:100%;
+    transform:translate(-50%,-2px);
+    font-family:'Oswald',sans-serif;
+    font-size:14px;
+    color:var(--bone);
+    font-weight: bold;
+  }
+
+  section{padding:48px 24px;}
+  .section-head{
+    font-family:'Oswald',sans-serif;
+    font-size:13px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--bone);
+    margin-bottom:24px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .section-head::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  .about p{
+    font-size:15px;
+    line-height:1.75;
+    color:#cccccc;
+    max-width:620px;
+  }
+  .about p + p{margin-top:14px;}
+
+  .credits{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px 32px;
+  }
+  .credit{border-left:2px solid var(--bone);padding-left:14px;}
+  .credit .role{
+    font-family:'Oswald',sans-serif;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#aaaaaa;
+  }
+  .credit .name{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:26px;
+    letter-spacing:1px;
+    margin-top:2px;
+    color: #ffffff;
+  }
+
+  .tracklist{list-style:none;}
+  .tracklist li{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .tracklist li:first-child{border-top:1px solid var(--line);}
+  .tnum{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:20px;
+    color:var(--bone);
+    min-width:26px;
+  }
+  .tname{
+    font-family:'Oswald',sans-serif;
+    font-size:16px;
+    letter-spacing:0.5px;
+    flex:1;
+    color:#ffffff;
+  }
+  .tdur{
+    font-size:13px;
+    color:#aaaaaa;
+    font-variant-numeric:tabular-nums;
+  }
+
+  footer{
+    padding:36px 24px 48px;
+    text-align:center;
+    border-top:1px solid var(--line);
+    background: #050505;
+  }
+  footer p{
+    font-family:'Oswald',sans-serif;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#666666;
+  }
+  footer p:first-child{
+    color:var(--bone);
+    font-size:12px;
+    margin-bottom:8px;
+  }
+
+  @media (max-width:560px){
+    .credits{grid-template-columns:1fr;}
+    .hero{padding:56px 18px 40px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="eyebrow">Eleventh Studio Album · 2023</div>
+    <h1>METALLICA</h1>
+    <h2>72 Seasons</h2>
+    <div class="art-frame">
+      <!-- Original black background, yellow "72" wordmark -->
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#000000"/>
+        <text x="50" y="66" text-anchor="middle"
+              font-family="'Bebas Neue', sans-serif"
+              font-size="60"
+              fill="#fae000">72</text>
+      </svg>
+    </div>
+    <div class="meta-row">
+      <span>Released Apr 14, 2023</span>
+      <span>Blackened Recordings</span>
+      <span>HQ, San Rafael, California</span>
+    </div>
+  </div>
+
+  <div class="string-divider"></div>
+
+  <div class="wrap">
+    <section class="about">
+      <div class="section-head">About the Record</div>
+      <p>Produced by Greg Fidelman alongside Hetfield and Ulrich, 72 Seasons explores the concept of the first 18 years of our lives that form our true or false selves. It stands as a heavy, driving modern record that looks backward at foundational influences while moving forward.</p>
+      <p>Clocking in at over 77 minutes, it delivers a massive, relentless wall of riffs, pairing deeply personal lyrical themes of reckoning and light with the band's core thrash and heavy metal roots.</p>
+    </section>
+
+    <section class="credits-section">
+      <div class="section-head">Lineup</div>
+      <div class="credits">
+        <div class="credit">
+          <div class="role">Guitar, Vocals</div>
+          <div class="name">James Hetfield</div>
+        </div>
+        <div class="credit">
+          <div class="role">Drums</div>
+          <div class="name">Lars Ulrich</div>
+        </div>
+        <div class="credit">
+          <div class="role">Bass</div>
+          <div class="name">Robert Trujillo</div>
+        </div>
+        <div class="credit">
+          <div class="role">Guitar</div>
+          <div class="name">Kirk Hammett</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tracklist-section">
+      <div class="section-head">Tracklist</div>
+      <ul class="tracklist">
+        <li><span class="tnum">01</span><span class="tname">72 Seasons</span><span class="tdur">7:39</span></li>
+        <li><span class="tnum">02</span><span class="tname">Shadows Follow</span><span class="tdur">6:12</span></li>
+        <li><span class="tnum">03</span><span class="tname">Screaming Suicide</span><span class="tdur">5:30</span></li>
+        <li><span class="tnum">04</span><span class="tname">Too Far Gone?</span><span class="tdur">4:34</span></li>
+        <li><span class="tnum">05</span><span class="tname">Crown of Phorns</span><span class="tdur">5:49</span></li>
+        <li><span class="tnum">06</span><span class="tname">Burn!</span><span class="tdur">5:26</span></li>
+        <li><span class="tnum">07</span><span class="tname">Chasing Light</span><span class="tdur">6:45</span></li>
+        <li><span class="tnum">08</span><span class="tname">If Darkness Had a Son</span><span class="tdur">6:36</span></li>
+        <li><span class="tnum">09</span><span class="tname">Too Far Gone?</span><span class="tdur">4:34</span></li>
+        <li><span class="tnum">10</span><span class="tname">Room of Mirrors</span><span class="tdur">5:34</span></li>
+        <li><span class="tnum">11</span><span class="tname">You Must Burn!</span><span class="tdur">7:03</span></li>
+        <li><span class="tnum">12</span><span class="tname">Inamorata</span><span class="tdur">11:10</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <p>Made by Daniel</p>
+    <p>Fan-made tribute page · Not affiliated with Metallica or Blackened Recordings</p>
+  </footer>
+
+</body>
+</html>
